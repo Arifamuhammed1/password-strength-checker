@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+.bg {
+    background: url('https://cdn.wallpapersafari.com/42/73/VfRC0F.jpg');
+    background-size: cover;
+    height: 100vh;
+    padding: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+.form-label {
+    
+    color: rgb(121, 114, 114);
+}
+#exampleInputEmail1 {
+    color: rgb(80, 74, 74);
+    background-color: rgb(26, 25, 25); 
+}
+#exampleInputPassword1 {
+    color: rgb(80, 74, 74);
+    background-color: rgb(26, 25, 25);
+}
+.con {
+    text-align: center;
+    padding: 50px;
+    background: #201f21;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+}
+.form-text {
+    color: rgb(121, 114, 114);
+}
+.form-check-label {
+    color: rgb(121, 114, 114);
+}
+#message {
+    
+    bottom: -30px;
+    font-size: 15px;
+    display: none;
+}
+#button11 {
+    display: none;
+}
+.p2 {
+    color: rgb(121, 114, 114);
+
+}
+.o1 {
+    color: rgb(121, 114, 114);
+}
+.instructions {
+    text-align: left;
+}
+#exampleModalLabel {
+    color: green;
+    font-weight: bold;
+}

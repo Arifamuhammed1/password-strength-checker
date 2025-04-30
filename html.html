@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="passwords.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="bg d-flex flex-column justify-content-center" id="section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 con">
+                    <div class=" ">
+                        <form>
+                            <div class="mb-3">
+                            
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+                                
+                                <p class="p1" id="message">Password is <span id="strength"></span></p>
+                            </div>
+                            <div class="instructions" id="inst">
+                              <p class="p2">
+                                Password must Contain:<br>
+                                <ul class="o1">
+                                  <li>One lowercase</li>
+                                  <li>One Uppercase</li>
+                                  <li>One Digit</li>
+                                  <li>One Special Character</li>
+                                </ul>
+                              </p>
+                            </div>
+                            
+                            <button type="button" class="custom-button btn btn-primary" id="button11" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                            
+                        </form>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog mt-5">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                  CONGRATULATIONS...!
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <br>
+                                <br>
+                                <p class="p3">YOU HAVE SUCCESSFULLY CREATED A STRONG PASSWORD.</p>
+                                <br>
+                                <br>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                  Close
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg2" id="section2">
+        <div>
+
+        </div>
+    </div>
+    <script>
+        var pass = document.getElementById("exampleInputPassword1");
+        var msg = document.getElementById("message");
+        var str = document.getElementById("strength");
+
+        let lowerCase = pass.value.match(/[a-z]/);
+        let upperCase = pass.value.match(/[A-Z]/);
+        let numbers = pass.value.match(/[0-9]/);
+        let specialCharacters = pass.value.match(/[! || @ || # || $ || % || & || * || ~ || _ || - || + || = || { || } || ? || . || , || < || > || ]/);
+
+    
+        pass.addEventListener('input', () => {
+          if (pass.value.length > 0) {
+            msg.style.display = "block";
+            
+          }
+          else {
+            msg.style.display = "none";
+            button11.style.display = "none";
+          }
+          
+          if(pass.value.length < 4 || lowerCase || upperCase || specialCharacters || numbers) {
+            str.innerHTML = "Weak";
+            pass.style.borderColor = "red";
+            msg.style.color = "red";
+            button11.style.display ="none"
+            
+          }
+           else if((pass.value.length >=4 && pass.value.length < 8) &&  ((pass.value.match(/[0-9]/)&&pass.value.match(/[a-z]/)) || (pass.value.match(/[0-9]/)&&pass.value.match(/[A-Z]/)) || (pass.value.match(/[0-9]/)&&pass.value.match(/[! || @ || # || $ || % || & || * || ~ || _ || - || + || = || { || } || ? || . || , || < || > || ]/)) || (pass.value.match(/[a-z]/)&&pass.value.match(/[A-Z]/)) || (pass.value.match(/[a-z]/)&&pass.value.match(/[! || @ || # || $ || % || & || * || ~ || _ || - || + || = || { || } || ? || . || , || < || > || ]/)) || (pass.value.match(/[A-Z]/)&&pass.value.match(/[! || @ || # || $ || % || & || * || ~ || _ || - || + || = || { || } || ? || . || , || < || > || ]/))) ) {
+            str.innerHTML = "Medium";
+            pass.style.borderColor = "yellow";
+            msg.style.color = "yellow";
+            button.style.display = "none"
+          }
+
+          else if(pass.value.length >= 8 && pass.value.match(/[a-z]/) && pass.value.match(/[A-Z]/) && pass.value.match(/[0-9]/) && pass.value.match(/[! || @ || # || $ || % || & || * || ~ || _ || - || + || = || { || } || ? || . || , || < || > || ]/)) {
+            str.innerHTML = "Strong";
+            pass.style.borderColor = "green";
+            msg.style.color = "green";
+            button11.style.display="inline";
+            inst.style.display = "none";
+
+        }
+    }
+      )
+      </script>
+</body>
+
+</html>
